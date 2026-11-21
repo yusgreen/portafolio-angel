@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Angel Pereda · Desarrollador Full-Stack</title>
+<meta name="description" content="Portafolio de Angel Pereda, desarrollador full-stack especializado en Next.js, TypeScript y NestJS. Proyectos: NovaSalud (gestión farmacéutica) y ML Platform. Disponible para prácticas y posiciones junior.">
+<meta name="author" content="Angel David Pereda Chavez">
+<link rel="canonical" href="https://angel-pereda.netlify.app/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f172a'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='700' fill='%2322c55e' text-anchor='middle'%3EAP%3C/text%3E%3C/svg%3E">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Angel Pereda · Desarrollador Full-Stack">
+<meta property="og:description" content="Desarrollador full-stack: Next.js, TypeScript, NestJS. Proyectos de ERP, gestión farmacéutica y plataforma de ML.">
+<meta property="og:url" content="https://angel-pereda.netlify.app/">
+<meta property="og:image" content="https://angel-pereda.netlify.app/og-image.png">
+<meta property="og:locale" content="es_PE">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Angel Pereda · Desarrollador Full-Stack">
+<meta name="twitter:description" content="Desarrollador full-stack: Next.js, TypeScript, NestJS. Proyectos de ERP, gestión farmacéutica y plataforma de ML.">
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Angel David Pereda Chavez","jobTitle":"Desarrollador Full-Stack","url":"https://angel-pereda.netlify.app/","sameAs":["https://github.com/yusgreen","https://www.linkedin.com/in/angel-pereda-chavez-7a87253a6"],"email":"angel.david.pereda.chavez@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Lima","addressCountry":"PE"},"knowsAbout":["Next.js","TypeScript","NestJS","React","Node.js","Prisma","MySQL","Machine Learning"]}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b1120; --bg-2:#111a2e; --surface:#16213a; --surface-2:#1c2a48;
+  --line:#23314f; --line-2:#2d3f63;
+  --fg:#e6edf5; --muted:#94a3b8; --muted-2:#64748b;
+  --accent:#22c55e; --accent-2:#16a34a; --accent-glow:rgba(34,197,94,.18);
+  --warn:#f59e0b; --danger:#ef4444;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+  --radius:10px; --radius-lg:16px;
+  color-scheme:dark;
+}
+:root[data-theme="light"]{
+  --bg:#f4f6fa; --bg-2:#eef1f7; --surface:#ffffff; --surface-2:#f1f5f9;
+  --line:#d5dce6; --line-2:#c3ccd9;
+  --fg:#0f172a; --muted:#475569; --muted-2:#64748b;
+  --accent:#16a34a; --accent-2:#15803d; --accent-glow:rgba(22,163,74,.12);
+  --warn:#d97706; --danger:#dc2626;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: light){ :root:not([data-theme="dark"]){ --bg:#f4f6fa; --bg-2:#eef1f7; --surface:#ffffff; --surface-2:#f1f5f9; --line:#d5dce6; --line-2:#c3ccd9; --fg:#0f172a; --muted:#475569; --muted-2:#64748b; --accent:#16a34a; --accent-2:#15803d; --accent-glow:rgba(22,163,74,.12); --warn:#d97706; --danger:#dc2626; color-scheme:light; } }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:5rem}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 1rem/1.6 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 1.5rem}
+
+/* ---- background grid ---- */
+.bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.35;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:56px 56px;mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 30%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 40%,#000 30%,transparent 80%)}
+.bg-glow{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(600px 400px at 80% 10%,var(--accent-glow),transparent 70%),radial-gradient(500px 350px at 10% 90%,rgba(59,130,246,.08),transparent 70%)}
+
+/* ---- nav ---- */
+nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:color-mix(in srgb,var(--bg) 75%,transparent);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1120px;margin:0 auto;padding:.9rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{font-family:var(--mono);font-weight:700;font-size:1.05rem;display:flex;align-items:center;gap:.5rem}
+.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
+.nav-links{display:flex;gap:1.4rem;font-size:.92rem;color:var(--muted)}
+.nav-links a:hover{color:var(--fg)}
+.nav-actions{display:flex;gap:.6rem;align-items:center}
+.toggle{background:var(--surface);border:1px solid var(--line);color:var(--fg);padding:.45rem .7rem;border-radius:8px;cursor:pointer;font-family:var(--mono);font-size:.85rem;display:flex;align-items:center;gap:.4rem}
+.toggle:hover{border-color:var(--accent)}
+
+/* ---- hero ---- */
+.hero{position:relative;z-index:1;padding:7rem 0 5rem;min-height:92vh;display:flex;align-items:center}
+.hero-grid{display:grid;gap:3rem;align-items:center}
+@media(min-width:900px){.hero-grid{grid-template-columns:1.15fr .85fr;gap:4rem}}
+.hero-meta{font-family:var(--mono);font-size:.85rem;color:var(--muted);display:flex;align-items:center;gap:.6rem;margin-bottom:1.5rem}
+.hero-meta .pulse{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.85)}}
+@media (prefers-reduced-motion:reduce){.hero-meta .pulse{animation:none}}
+h1{font-family:var(--mono);font-weight:700;font-size:clamp(2.6rem,7vw,5rem);line-height:1.05;letter-spacing:-.02em;margin:0 0 1rem}
+h1 .accent{color:var(--accent)}
+.lead{font-size:1.15rem;color:var(--muted);max-width:42ch;margin:0 0 2rem}
+.facts{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 2rem;padding:0;list-style:none}
+.facts li{font-family:var(--mono);font-size:.82rem;padding:.35rem .7rem;border:1px solid var(--line);border-radius:6px;color:var(--muted);background:var(--surface)}
+.facts li strong{color:var(--fg);font-weight:500}
+.cta-row{display:flex;flex-wrap:wrap;gap:.8rem}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.3rem;border-radius:8px;font-weight:500;font-size:.95rem;border:1px solid var(--line);background:var(--surface);color:var(--fg);transition:all .2s;cursor:pointer}
+.btn:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
+.btn.primary{background:var(--accent);color:#052010;border-color:var(--accent);font-weight:600}
+.btn.primary:hover{background:var(--accent-2);border-color:var(--accent-2);color:#fff}
+.btn.ghost{background:transparent}
+.avatar-wrap{position:relative;display:flex;justify-content:center}
+.avatar{width:260px;height:320px;border-radius:var(--radius-lg);background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--line);position:relative;overflow:hidden;display:grid;place-items:center}
+.avatar .initials{font-family:var(--mono);font-size:5rem;font-weight:700;color:var(--accent);opacity:.9;letter-spacing:-.05em}
+.avatar .grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:24px 24px;opacity:.25}
+.avatar .corner{position:absolute;bottom:12px;right:12px;font-family:var(--mono);font-size:.72rem;color:var(--muted-2);background:var(--bg);padding:.25rem .5rem;border-radius:4px;border:1px solid var(--line)}
+/* to use a real photo: replace .avatar content with <img src="foto.jpg" alt="Foto de Angel Pereda"> */
+
+/* ---- sections ---- */
+section{position:relative;z-index:1;padding:5rem 0;border-top:1px solid var(--line)}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.section-head h2{font-family:var(--mono);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;margin:0;letter-spacing:-.01em}
+.section-head .tag{font-family:var(--mono);font-size:.8rem;color:var(--muted);padding:.3rem .7rem;border:1px solid var(--line);border-radius:6px}
+.section-head .tag::before{content:"// ";color:var(--accent)}
+
+/* ---- projects ---- */
+.projects-grid{display:grid;gap:1.5rem}
+@media(min-width:800px){.projects-grid{grid-template-columns:1fr 1fr}}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.75rem;display:flex;flex-direction:column;gap:1rem;transition:border-color .25s,transform .25s;position:relative;overflow:hidden}
+.proj::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0;transition:opacity .25s}
+.proj:hover{border-color:var(--line-2);transform:translateY(-3px)}
+.proj:hover::before{opacity:1}
+.proj-head{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.proj h3{font-family:var(--mono);font-size:1.35rem;font-weight:700;margin:0}
+.proj .meta{font-family:var(--mono);font-size:.78rem;color:var(--muted-2);margin:.25rem 0 0}
+.proj .stack{display:flex;flex-wrap:wrap;gap:.4rem;margin:.25rem 0 .5rem}
+.proj .stack span{font-family:var(--mono);font-size:.75rem;padding:.25rem .6rem;border-radius:5px;background:var(--surface-2);color:var(--muted);border:1px solid var(--line)}
+.cols{display:grid;gap:1.25rem;margin:.5rem 0}
+@media(min-width:600px){.cols{grid-template-columns:1fr 1fr}}
+.proj h4{font-size:.85rem;font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin:0 0 .4rem;font-weight:600}
+.proj ul{margin:0;padding-left:1.1rem;color:var(--muted);font-size:.92rem}
+.proj ul li{margin:.25rem 0}
+.proj .chips{list-style:none;padding:0;margin:.75rem 0 0;display:flex;flex-wrap:wrap;gap:.4rem}
+.proj .chips li{font-size:.78rem;padding:.25rem .6rem;border-radius:5px;background:var(--accent-glow);color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent)}
+.proj .actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:auto;padding-top:1rem;border-top:1px solid var(--line)}
+.proj .soon{font-family:var(--mono);font-size:.78rem;color:var(--muted-2);padding:.3rem .7rem;border:1px dashed var(--line);border-radius:5px}
+
+/* ---- skills ---- */
+.skills-grid{display:grid;gap:1rem}
+@media(min-width:700px){.skills-grid{grid-template-columns:repeat(3,1fr)}}
+.skill-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:1.25rem}
+.skill-card h3{font-family:var(--mono);font-size:.85rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);margin:0 0 .75rem;font-weight:600}
+.skill-card p{margin:0;color:var(--muted);font-size:.9rem;line-height:1.7}
+.skill-card p strong{color:var(--fg);font-weight:500}
+
+/* ---- about / formation ---- */
+.about-grid{display:grid;gap:2rem}
+@media(min-width:800px){.about-grid{grid-template-columns:1.2fr 1fr}}
+.about-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:1.75rem}
+.about-card h3{font-family:var(--mono);font-size:1.1rem;margin:0 0 1rem;color:var(--fg)}
+.about-card p{color:var(--muted);margin:0 0 .75rem;font-size:.95rem}
+.about-card p:last-child{margin:0}
+.timeline{list-style:none;padding:0;margin:0;display:grid;gap:1rem}
+.timeline li{padding-left:1.25rem;position:relative;border-left:2px solid var(--line)}
+.timeline li::before{content:"";position:absolute;left:-5px;top:.5rem;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+.timeline li .when{font-family:var(--mono);font-size:.78rem;color:var(--accent);display:block;margin-bottom:.15rem}
+.timeline li .what{font-weight:500;color:var(--fg)}
+.timeline li .where{color:var(--muted);font-size:.9rem}
+
+/* ---- contact ---- */
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-lg);padding:2rem;display:grid;gap:1.5rem}
+@media(min-width:700px){.contact{grid-template-columns:1.3fr 1fr;align-items:center}}
+.contact h3{font-family:var(--mono);font-size:1.5rem;margin:0 0 .5rem}
+.contact p{color:var(--muted);margin:0 0 1rem;font-size:.95rem}
+.contact-links{display:flex;flex-direction:column;gap:.6rem}
+.contact-links a{display:flex;align-items:center;gap:.7rem;padding:.7rem 1rem;border:1px solid var(--line);border-radius:8px;font-family:var(--mono);font-size:.88rem;color:var(--fg);transition:all .2s}
+.contact-links a:hover{border-color:var(--accent);color:var(--accent)}
+.contact-links a .ic{width:18px;text-align:center;color:var(--muted)}
+
+/* ---- footer ---- */
+footer{position:relative;z-index:1;padding:2.5rem 0 3rem;border-top:1px solid var(--line);color:var(--muted-2);font-size:.85rem;font-family:var(--mono)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem}
+
+/* ---- reveal animation ---- */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* theme toggle icon */
+.icon-sun,.icon-moon{display:none}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .icon-moon{display:block}}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]) .icon-sun{display:block}}
+:root[data-theme="dark"] .icon-moon{display:block}
+:root[data-theme="dark"] .icon-sun{display:none}
+:root[data-theme="light"] .icon-sun{display:block}
+:root[data-theme="light"] .icon-moon{display:none}
+</style>
+</head>
+<body>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-glow" aria-hidden="true"></div>
+
+<nav>
+  <div class="nav-inner">
+    <div class="brand"><span class="dot" aria-hidden="true"></span>angel.pereda</div>
+    <div class="nav-links">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#formacion">Formación</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <div class="nav-actions">
+      <button class="toggle" id="themeToggle" aria-label="Cambiar tema"><span class="icon-sun">☀</span><span class="icon-moon">☾</span></button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-meta"><span class="pulse" aria-hidden="true"></span>disponible para prácticas y posiciones junior · Lima, Perú</div>
+      <h1>Hola, soy <span class="accent">Angel Pereda</span>.<br>Convierto procesos manuales en sistemas digitales.</h1>
+      <p class="lead">Estudiante del programa técnico de Ingeniería de Software con IA en SENATI. Hago prácticas desarrollando módulos de un ERP en Nuevo Horizonte Mayorista y construyo proyectos propios de gestión y machine learning.</p>
+      <ul class="facts">
+        <li><strong>Stack</strong> · Next.js · TypeScript · NestJS</li>
+        <li><strong>5.º semestre</strong> en SENATI</li>
+        <li><strong>Inglés</strong> · ICPNA, Intermedio 12</li>
+      </ul>
+      <div class="cta-row">
+        <a class="btn primary" href="#proyectos">Ver proyectos ↓</a>
+        <a class="btn" href="https://github.com/yusgreen" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/angel-pereda-chavez-7a87253a6" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+    <div class="avatar-wrap">
+      <div class="avatar" role="img" aria-label="Avatar con iniciales AP">
+        <div class="grid" aria-hidden="true"></div>
+        <span class="initials">AP</span>
+        <span class="corner">~/angel-pereda</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="proyectos">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Proyectos</h2>
+        <span class="tag">02 proyectos personales</span>
+      </div>
+      <div class="projects-grid">
+
+        <article class="proj reveal">
+          <div class="proj-head">
+            <div>
+              <h3>NovaSalud</h3>
+              <p class="meta">Proyecto personal · ~1 semana · junto con ML Platform</p>
+            </div>
+          </div>
+          <p class="stack">React · Vite · Node.js · Express · Prisma · SQLite</p>
+          <div class="cols">
+            <div>
+              <h4>Problema</h4>
+              <ul>
+                <li>Saber cuánto stock hay sin contar a mano.</li>
+                <li>No perder productos por vencimiento.</li>
+                <li>Evitar totales mal calculados o acciones sin permiso.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Solución</h4>
+              <ul>
+                <li>Control de stock automático en cada venta.</li>
+                <li>Seguimiento de caducidades, proveedores y reportes.</li>
+                <li>El backend valida permisos y recalcula totales.</li>
+              </ul>
+            </div>
+          </div>
+          <h4>Competencias</h4>
+          <ul class="chips">
+            <li>Diseño de base de datos</li><li>API REST con Express</li><li>Reglas de negocio en el servidor</li><li>Permisos por rol</li><li>React con componentes reutilizables</li><li>Interfaz responsive</li>
+          </ul>
+          <div class="actions">
+            <a class="btn" href="https://github.com/yusgreen/nova-salud" target="_blank" rel="noopener">Ver código ↗</a>
+            <span class="soon">Demo en vivo: próximamente</span>
+          </div>
+        </article>
+
+        <article class="proj reveal">
+          <div class="proj-head">
+            <div>
+              <h3>ML Platform</h3>
+              <p class="meta">Proyecto personal · ~1 semana · junto con NovaSalud</p>
+            </div>
+          </div>
+          <p class="stack">Next.js · TypeScript · FastAPI · scikit-learn · pandas · matplotlib · Groq API · Ollama · SQLite</p>
+          <div class="cols">
+            <div>
+              <h4>Problema</h4>
+              <ul>
+                <li>Datasets, entrenamientos y experimentos dispersos en archivos.</li>
+                <li>Comparar resultados de distintos modelos.</li>
+                <li>Seguir funcionando si el servicio de IA externo falla.</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Solución</h4>
+              <ul>
+                <li>Interfaz para subir CSV, configurar entrenamientos y ver métricas.</li>
+                <li>Descarga de modelos con versionado automático.</li>
+                <li>Texto generado con Groq y respaldo local con Ollama.</li>
+              </ul>
+            </div>
+          </div>
+          <h4>Competencias</h4>
+          <ul class="chips">
+            <li>Next.js con FastAPI</li><li>scikit-learn y pandas</li><li>Seguimiento de experimentos</li><li>Versionado de modelos</li><li>Integración de LLM</li><li>Diseño con respaldo ante fallos</li>
+          </ul>
+          <div class="actions">
+            <a class="btn" href="https://github.com/yusgreen/ml-platform" target="_blank" rel="noopener">Ver código ↗</a>
+            <span class="soon">Demo en vivo: próximamente</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="habilidades">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Habilidades</h2>
+        <span class="tag">stack técnico</span>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <h3>Frontend</h3>
+          <p><strong>React, Next.js (App Router), TypeScript, Tailwind CSS, Vite.</strong> Componentes reutilizables, interfaces responsive, App Router.</p>
+        </div>
+        <div class="skill-card reveal">
+          <h3>Backend</h3>
+          <p><strong>Node.js, Express, NestJS, FastAPI, APIs REST.</strong> Arquitectura modular, validaciones financieras, autenticación 2FA.</p>
+        </div>
+        <div class="skill-card reveal">
+          <h3>Bases de datos</h3>
+          <p><strong>MySQL, PostgreSQL, SQLite, Prisma ORM.</strong> Diseño de esquemas, migraciones, reglas de negocio en el servidor.</p>
+        </div>
+        <div class="skill-card reveal">
+          <h3>Machine learning</h3>
+          <p><strong>scikit-learn, pandas, matplotlib, seaborn.</strong> Entrenamiento de modelos, métricas, seguimiento de experimentos.</p>
+        </div>
+        <div class="skill-card reveal">
+          <h3>IA y LLM</h3>
+          <p><strong>Groq API, Ollama.</strong> Integración de LLM con respaldo local ante fallos.</p>
+        </div>
+        <div class="skill-card reveal">
+          <h3>Equipo</h3>
+          <p><strong>Git (ramas, PRs, code review), Agile/Scrum.</strong> Trabajo con equipo real en prácticas profesionales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="formacion">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Formación</h2>
+        <span class="tag">trayectoria</span>
+      </div>
+      <div class="about-grid">
+        <div class="about-card reveal">
+          <h3>SENATI</h3>
+          <p>Técnico en Ingeniería de Software con Inteligencia Artificial. 5.º semestre, desde 2024.</p>
+          <p>Cursos relevantes: Desarrollo Web Avanzado, Bases de Datos, Inteligencia Artificial, Metodologías Ágiles.</p>
+          <p>Siguiente paso: ruta a bachiller (en SENATI o en una universidad) para titularme como ingeniero de software.</p>
+        </div>
+        <div>
+          <ul class="timeline reveal">
+            <li>
+              <span class="when">2024 — presente</span>
+              <span class="what">Técnico en Ingeniería de Software con IA</span>
+              <span class="where">SENATI · 5.º semestre</span>
+            </li>
+            <li>
+              <span class="when">Abr 2026 — presente</span>
+              <span class="what">Desarrollador Full-Stack (prácticas)</span>
+              <span class="where">Nuevo Horizonte Mayorista · Lima, Perú</span>
+            </li>
+            <li>
+              <span class="when">2025</span>
+              <span class="what">TOEFL ITP Nivel 2 · 463/500</span>
+              <span class="where">ICPNA · Inglés Intermedio 12 en curso</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Contacto</h2>
+        <span class="tag">hablemos</span>
+      </div>
+      <div class="contact reveal">
+        <div>
+          <h3>¿Tienes un proyecto o una oportunidad?</h3>
+          <p>Me interesa aplicar lo que sé en la digitalización de procesos operativos: control de inventarios, seguimiento de mantenimiento y dashboards de producción. A futuro, machine learning en datos industriales (mantenimiento predictivo).</p>
+          <a class="btn primary" href="mailto:angel.david.pereda.chavez@gmail.com">Escríbeme ↗</a>
+        </div>
+        <div class="contact-links">
+          <a href="https://github.com/yusgreen" target="_blank" rel="noopener"><span class="ic">&lt;/&gt;</span>GitHub · yusgreen</a>
+          <a href="https://www.linkedin.com/in/angel-pereda-chavez-7a87253a6" target="_blank" rel="noopener"><span class="ic">in</span>LinkedIn · angel-pereda-chavez</a>
+          <a href="https://angel-pereda.netlify.app" target="_blank" rel="noopener"><span class="ic">↗</span>Portafolio · angel-pereda.netlify.app</a>
+          <a href="mailto:angel.david.pereda.chavez@gmail.com"><span class="ic">@</span>angel.david.pereda.chavez@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Angel David Pereda Chávez · Lima, Perú</span>
+    <span>Hecho con HTML, CSS y un poco de JS · sin frameworks</span>
+  </div>
+</footer>
+
+<noscript>
+  <div style="padding:2rem;text-align:center;color:#94a3b8">Este portafolio requiere JavaScript para la navegación interactiva, pero todo el contenido está disponible en el código fuente.</div>
+</noscript>
+
+<script>
+(function(){
+  // Theme toggle
+  var root=document.documentElement;
+  var stored=localStorage.getItem('theme');
+  if(stored){root.setAttribute('data-theme',stored)}
+  document.getElementById('themeToggle').addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme');
+    var sys=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+    var now=cur||(sys);
+    var next=now==='dark'?'light':'dark';
+    root.setAttribute('data-theme',next);
+    localStorage.setItem('theme',next);
+  });
+
+  // Reveal on scroll
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:.12});
+    els.forEach(function(e){io.observe(e)});
+  } else { els.forEach(function(e){e.classList.add('in')}) }
+
+  // Smooth anchor highlight
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=a.getAttribute('href'); if(id==='#')return;
+      var t=document.querySelector(id); if(!t)return;
+      e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); history.replaceState(null,'',id);
+    });
+  });
+})();
+</script>
+</body>
+</html>

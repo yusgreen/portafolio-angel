@@ -1,0 +1,20 @@
+# Sistema operativo
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# OpenCode / config
+.opencode/
+
+# Archivos grandes de trabajo (no necesarios para el deploy del portafolio)
+*.docx
+*.pptx
+*.xlsx
+*.pdf
+archivosaconvertir/
+
+# Análisis (opcional, descomenta si no quieres subirlos)
+# analisis*.md
+
+# Fotos originales grandes (si las guardas aparte)
+# *.psd
