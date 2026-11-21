@@ -446,7 +446,22 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem
     els.forEach(function(e){io.observe(e)});
   } else { els.forEach(function(e){e.classList.add('in')}) }
 
-  // Smooth anchor highlight
+  // Demos en vivo
+  var DEMOS = { novasalud: "https://nova-salud-1.onrender.com", mlplatform: "" };
+  document.querySelectorAll('[data-demo]').forEach(function(el){
+    var key = el.getAttribute('data-demo');
+    var url = DEMOS[key];
+    if(url){
+      var a = document.createElement('a'); a.href = url; a.textContent = 'Ver demo en vivo'; a.rel = 'noopener'; a.target = '_blank';
+      el.appendChild(a);
+      var n = document.createElement('span'); n.className = 'note';
+      n.textContent = 'Alojado en Render: la primera carga puede tardar unos segundos.';
+      el.parentNode.appendChild(n);
+    } else {
+      el.className = 'soon';
+      el.textContent = key === 'mlplatform' ? 'Demo en vivo: próximo a deployar' : 'Demo en vivo: próximamente';
+    }
+  });
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener('click',function(e){
       var id=a.getAttribute('href'); if(id==='#')return;
